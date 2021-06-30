@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Mouse Tracking</title>
+	<link rel="stylesheet" type="text/css" href="style.css">
+
+</head>
+<body>
+	
+		<div class="center-div">
+			<div class="face">
+				<div class="eyes">
+					<div class="eye">
+						<div class="pupil"></div>
+					</div>
+
+					<div class="eye">
+						<div class="pupil"></div>
+					</div>
+
+				</div>
+				
+			</div>
+		</div>	
+
+	<script type="text/javascript">
+
+		let pupils = document.getElementsByClassName('pupil');
+		//console.log(pupils);
+		let pupilsArr = Array.from(pupils);
+
+		//pupils movement
+		let pupilStartPoint = -100;
+		let pupilRange = 180;
+
+		let mouseXStartPoint = 0;
+		let mouseXEndPoint = window.innerWidth;
+		let currentXPosition = 0;
+		let fractXValue = 0;
+
+		let mouseYEndPoint = window.innerHeight;
+		let currentYPosition = 0;
+		let fractYValue = 0;
+
+		let mouseXRange = mouseXEndPoint - mouseXStartPoint;
+		
+		const mouseMove = (event) => {
+			//console.log(`X value = ${event.clientX} & Y value = ${event.clientY} `);
+
+			currentXPosition = event.clientX - mouseXStartPoint;
+			fractXValue = currentXPosition / mouseXRange;
+			//console.log(fractXValue);
+
+			currentYPosition = event.clientY;
+			fractYValue = currentYPosition / mouseYEndPoint;
+			//console.log(fractYValue);
+
+			let pupilXCurrentPosition = pupilStartPoint + (fractXValue * pupilRange);
+			let pupilYCurrentPosition = pupilStartPoint + (fractYValue * pupilRange);
+
+			pupilsArr.forEach((curPupil) => {
+				curPupil.style.transform = `translate(${pupilXCurrentPosition}px, ${pupilYCurrentPosition}px)`;
+
+
+			})
+
+		}
+
+		const windowResize = (event) => {
+			 mouseXEndPoint = window.innerWidth;
+			 mouseYEndPoint = window.innerHeight;
+			 mouseXRange = mouseXEndPoint - mouseXStartPoint;
+
+		}
+
+		window.addEventListener('mousemove', mouseMove);
+		window.addEventListener('resize', windowResize);
+
+
+
+	</script>
+
+</body>
+</html>
