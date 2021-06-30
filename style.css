@@ -1,0 +1,66 @@
+*{
+	margin : 0;
+	padding: 0;
+	box-sizing: border-box;
+}
+
+body{
+	position: relative;
+	display: flex;
+	justify-content: space-between;
+}
+
+.center-div{
+	margin-left: 450px;
+	margin-top: 120px;
+}
+
+.leftDiv{
+	width: 300px;
+	height: 100vh;
+	background-color: cadetblue;
+}
+
+.rightDiv{
+	width: 300px;
+	height: 100vh;
+	background-color: cadetblue;
+
+}
+
+.eyes{
+	width: inherit;
+	height: 250px;
+
+	display: flex;
+	justify-content: space-around;
+	align-items: center;
+}
+
+.face{
+  height: 500px;
+  width: 700px;
+  background-color: #7FD4FF;
+  border-radius: 50%;
+}
+
+.eye{
+	width: 250px;
+	height: 250px;
+	margin-top: 170px;
+	background-color: #fff;
+	border-radius: 50%;
+	display: flex;
+	justify-content: space-around;
+	align-items: center;
+	box-shadow: rgb(50,50,93,0.25) 0px 50px 100px -20px, rgb(0,0,0,0.3) 0px 30px 60px -30px, rgb(50,50,93,0.25) 0px 50px 100px -20px, rgb(10,37,93,0.25) 0px 50px 100px -20px;
+	overflow: hidden;
+}
+
+.pupil{
+	width: 50px;
+	height: 50px;
+	background-color: black;
+	border-radius: 50%;
+	box-shadow: rgba(0,0,0,0.1) 0px 10px 50px;
+}
